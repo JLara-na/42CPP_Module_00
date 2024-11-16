@@ -6,7 +6,7 @@
 /*   By: jlara-na <jlara-na@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:30:44 by jlara-na          #+#    #+#             */
-/*   Updated: 2024/11/16 01:01:18 by jlara-na         ###   ########.fr       */
+/*   Updated: 2024/11/16 11:07:45 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ void PhoneBook::add_contact(){
 				    }
 				}
 				else {
-					if (aux.length() > 0){
+					if (aux.length() > 0 && aux.find_first_of("\t") == std::string::npos){
 				    	Contact->set_field(i, aux);
 				    	break ;
 			    	}
 			    	else {
-				    	std::cout << RED_B << "Field " << fields[i] << "cannot be empty" << DEFAULT_SGR << std::endl;
+				    	std::cout << RED_B << "Field " << fields[i] << "cannot be empty or have '\\t'" << DEFAULT_SGR << std::endl;
 				    	std::cout << fields[i];
 				    }
 				}
@@ -123,18 +123,18 @@ void process_input(std::string input, PhoneBook *Book)
 		std::cout << RED << input + ": command not found" << DEFAULT_SGR << std::endl;
 }
 
-int	main(int ac, char **av)
+int	main()
 {
 	std::string	Input;
 	PhoneBook	Book;
 	
-	(void)ac;
-	(void)av;
+	std::cout << RESET_SCREEN;
 	while (true)
 	{
 		std::cout << CUSTOM_208 "Comands: " GREEN "ADD(A), " MAGENTA "SEARCH(S), " RED "EXIT(E) " << DEFAULT_SGR << std::endl;
 		std::getline(std::cin, Input);
 		process_input(Input, &Book);
 	}
+	return (0);
 }
 

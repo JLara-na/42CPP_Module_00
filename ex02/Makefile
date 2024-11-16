@@ -1,6 +1,6 @@
 #-----------EXECUTABLE-----------
 
-NAME			:=		phonebook
+NAME			:=		TheJobOfYourDreams
 
 #-----------DIR PATHS------------
 
@@ -62,12 +62,13 @@ CUSTOM_3		=		\033[38:5:112m
 CUSTOM_4		=		\033[38:5:101m
 
 #---------SRC OBJ DEP INC---------
-SRC_FILES		=		PhoneBook					\
+SRC_FILES		=		Account					\
+						tests					\
 
 SRC 			= 		$(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FILES)))
 OBJ 			= 		$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 DEPS 			= 		$(addprefix $(OBJ_DIR), $(addsuffix .d, $(SRC_FILES)))
-INCS			= 		$(addprefix $(INCLUDE), $(addsuffix .h, $(INC_FILES)))
+INCS			= 		$(addprefix $(INCLUDE), $(addsuffix .hpp, $(INC_FILES)))
 
 #----------CACHE------------------
 OBJF			=		.cache_exists
@@ -80,7 +81,7 @@ all:
 $(NAME):	$(OBJ)
 			@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 			@echo "$(CLEAN_LINE)$(CUSTOM_4)FLAGS USED	$(CUSTOM_1)$(CXX)$(CXXFLAGS)$(DEF_COLOR)"
-			@echo "$(CLEAN_LINE)$(CUSTOM_4)EX01		$(GREEN)✔ COMPILED CORRECTLY$(DEF_COLOR)"
+			@echo "$(CLEAN_LINE)$(CUSTOM_4)EX02		$(GREEN)✔ COMPILED CORRECTLY$(DEF_COLOR)"
 
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(INCS) | $(OBJF)
