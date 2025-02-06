@@ -61,7 +61,7 @@ CUSTOM_3		=		\033[38:5:112m
 CUSTOM_4		=		\033[38:5:101m
 
 #---------SRC OBJ DEP INC---------
-SRC_FILES		=		megaphone					\
+SRC_FILES		=		Megaphone					\
 
 SRC 			= 		$(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FILES)))
 OBJ 			= 		$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
